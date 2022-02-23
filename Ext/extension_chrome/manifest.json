@@ -1,0 +1,86 @@
+{
+    "manifest_version": 2,
+    "name": "Mentor Goal",
+    "description": "Suivi de Candidatures",
+    "version": "0.10",
+    "browser_action": {
+        "default_icon": {            
+          "16": "images/icon16.png", 
+          "32": "images/icon32.png",
+          "128": "images/icon128.png"
+        }
+    },  
+    
+    "commands": {
+      "_execute_browser_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+F",
+          "mac": "Command+X"
+        }
+      }
+    },
+    "web_accessible_resources": [
+          "images/*"
+    ],
+    "background": {
+      "scripts": ["background.js",
+                  "bull.js"     
+                 ],
+      "persistent": false
+    },
+
+    "icons": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "128": "images/icon128.png"
+    },
+
+    "permissions": [ 
+      "https://www.linkedin.com/in/*",
+      "https://www.linkedin.com/jobs/*",
+      "https://fr.indeed.com/viewjob?jk*",
+         "tabs", 
+         "declarativeContent",
+         "notifications" 
+     ],
+          
+     "content_scripts": [ 
+       {
+      "matches": [
+        "https://www.linkedin.com/in/*",
+        "https://www.linkedin.com/jobs/*",
+        "https://www.welcometothejungle.com/fr/jobs*",
+        "https://www.monster.fr/*",
+        "https://www.regionsjob.com/emploi*",
+        "https://www.meteojob.com/offres-emploi*",
+        "https://www.ouestjob.com/emploi*",
+        "https://www.centrejob.com/emploi*",
+        "https://www.parisjob.com/emploi*",
+        "https://www.lesjeudis.com/emploi*",
+        "https://www.apec.fr/candidat/recherche-emploi.html/emploi*",
+        "https://jobs-stages.letudiant.fr/*",
+        "https://stationf.co/companies*",
+        "https://walt.community/home-candidat*",
+        "https://www.jobteaser.com/fr/job-offers*",
+        "https://www.studyrama-emploi.com/*",
+        "https://www.pass.fonction-publique.gouv.fr/*",
+        "https://www.alternance.emploi.gouv.fr/bourse-a-l-emploi-recherche-prive*",
+        "https://www.jobirl.com/stages-alternance/stage-etudiant*",
+        "https://www.jobirl.com/stages-alternance/alternance*", 
+        "https://www.optioncarriere.com/*",
+        "https://neuvoo.fr/*",
+        "https://jobs.makesense.org/s/jobs?items_per_page=20&items_page=0&locationRadius=*",
+        "https://www.cadreo.com/emplois/recherche.html*",
+        "https://www.keljob.com/recherche*",
+        "https://www.sportjobshunter.com/*",
+        "https://www.cadremploi.fr/emploi/liste_offres*",
+        "https://fr.indeed.com/viewjob?jk*",
+        "https://mentorgoal.com/*"
+      ],
+      "html": ["popCandidature.html"],
+      "js": ["bull.js"],
+      "css":["bull.css"]
+    } ]
+     
+  }
+
